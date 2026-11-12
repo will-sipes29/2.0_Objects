@@ -7,14 +7,14 @@ public class Astronaut {
 
     //VARIABLE DECLARATION SECTION
     //Here's where you state which variables you are going to use.
-    public String name;                //holds the name of the hero
+    public String name;             //holds the name of the hero
     public int xpos;                //the x position
     public int ypos;                //the y position
-    public int dx;                    //the speed of the hero in the x direction
-    public int dy;                    //the speed of the hero in the y direction
+    public int dx;                  //the speed of the hero in the x direction
+    public int dy;                  //the speed of the hero in the y direction
     public int width;
     public int height;
-    public boolean isAlive;            //a boolean to denote if the hero is alive or dead.
+    public boolean isAlive;         //a boolean to denote if the hero is alive or dead.
 
 
     // METHOD DEFINITION SECTION
@@ -28,8 +28,8 @@ public class Astronaut {
     public Astronaut(int pXpos, int pYpos) {
         xpos = pXpos;
         ypos = pYpos;
-        dx =100;
-        dy =100;
+        dx = 10;
+        dy = -10;
         width = 100;
         height = 100;
         isAlive = true;
