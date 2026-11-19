@@ -117,13 +117,16 @@ public class BasicGameApp implements Runnable {
 			astro2.width = astro2.width + 10;
 			astro2.height = astro2.height + 10;
 
-			astro1.dx = astro1.dx + 2;
-			astro1.dy = astro1.dy + 2;
-			astro2.dx = astro2.dx + 2;
-			astro2.dy = astro2.dy + 2;
+			if(Math.abs(astro1.xpos-astro2.xpos) < Math.abs(astro1.ypos-astro2.ypos)){
+				astro1.dy = astro1.dy * -1;
+				astro2.dy = astro2.dy * -1;
+			}
+			if(Math.abs(astro1.ypos-astro2.ypos) < Math.abs(astro1.xpos-astro2.xpos)){
+				astro1.dx = astro1.dx * -1;
+				astro2.dx = astro2.dx * -1;
+			}
 		}
 		if(!astro1.hitbox.intersects(astro2.hitbox)){
-
 			astro1.isCrashing = false;
 			astro2.isCrashing = false;
 		}
