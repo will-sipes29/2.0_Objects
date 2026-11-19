@@ -39,6 +39,7 @@ public class BasicGameApp implements Runnable {
    
 	public BufferStrategy bufferStrategy;
 	public Image astroPic;
+	public Image blackHolePic;
 
    //Declare the objects used in the program
    //These are things that are made up of more than one variable type
@@ -65,6 +66,7 @@ public class BasicGameApp implements Runnable {
       //variable and objects
       //create (construct) the objects needed for the game and load up 
 		astroPic = Toolkit.getDefaultToolkit().getImage("astronaut.png"); //load the picture
+		blackHolePic = Toolkit.getDefaultToolkit().getImage("blackHole.jpg");
 		astro1 = new Astronaut(300,350);
 		astro2 = new Astronaut(900,350);
 		astro3 = new Astronaut((int)(Math.random()*1000)+100,(int)(Math.random()*500)+100);
@@ -111,6 +113,7 @@ public class BasicGameApp implements Runnable {
 
 			astro1.isCrashing = true;
 			astro2.isCrashing = true;
+			astro2.isAlive = false;
 
 			astro1.width = astro1.width + 10;
 			astro1.height = astro1.height + 10;
@@ -179,12 +182,16 @@ public class BasicGameApp implements Runnable {
 		g.clearRect(0, 0, WIDTH, HEIGHT);
 		//todo: start code here
 
+		g.drawImage(blackHolePic, 0, 0, WIDTH, HEIGHT, null);
+
         //draw the image of the astronaut
 		g.drawImage(astroPic, astro1.xpos, astro1.ypos, astro1.width, astro1.height, null);
 		g.drawRect(astro1.hitbox.x, astro1.hitbox.y, astro1.hitbox.width, astro1.hitbox.height);
 
-		g.drawImage(astroPic, astro2.xpos, astro2.ypos, astro2.width, astro2.height, null);
-		g.drawRect(astro2.hitbox.x, astro2.hitbox.y, astro2.hitbox.width, astro2.hitbox.height);
+		if(astro2.isAlive == true){
+			g.drawImage(astroPic, astro2.xpos, astro2.ypos, astro2.width, astro2.height, null);
+			g.drawRect(astro2.hitbox.x, astro2.hitbox.y, astro2.hitbox.width, astro2.hitbox.height);
+		}
 
 		g.drawImage(astroPic, astro3.xpos, astro3.ypos, astro3.width, astro3.height, null);
 
